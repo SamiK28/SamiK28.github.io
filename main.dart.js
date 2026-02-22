@@ -7776,7 +7776,7 @@ A.kz(B.c.a8("\u2550",50))
 p=4
 h=t.N
 s=7
-return A.O(A.aI2(A.f1("https://raw.githubusercontent.com/SamiK28/Portfolio-main/master/assets/data.json",0,null),A.am(["Accept","application/json"],h,h)).Gd(B.Bl),$async$TD)
+return A.O(A.aI2(A.f1("https://raw.githubusercontent.com/SamiK28/SamiK28.github.io/master/assets/data.json",0,null),A.am(["Accept","application/json"],h,h)).Gd(B.Bl),$async$TD)
 case 7:n=b
 if(n.b===200){g=n
 m=B.c7.ec(A.aHN(A.aFE(g.e)).ec(g.w))
