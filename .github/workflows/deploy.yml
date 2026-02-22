@@ -21,6 +21,8 @@ jobs:
 
       - run: flutter pub get
 
+      - run: flutter clean
+
       - run: flutter build web --release
 
       - run: touch build/web/.nojekyll
