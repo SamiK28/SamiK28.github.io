@@ -23,7 +23,7 @@ Future<void> loadPortfolioData() async {
   try {
     // Try to fetch from GitHub
     final response = await http.get(
-      Uri.parse('https://raw.githubusercontent.com/SamiK28/Portfolio-main/master/assets/data.json'),
+      Uri.parse('https://raw.githubusercontent.com/SamiK28/SamiK28.github.io/master/assets/data.json'),
       headers: {'Accept': 'application/json'},
     ).timeout(const Duration(seconds: 10));
     
