@@ -51,6 +51,12 @@ class ProjectItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final isMobile = width < 700;
+    final horizontalPad = isMobile ? 14.0 : width * 0.02;
+    final verticalPad =
+        isMobile ? 16.0 : MediaQuery.of(context).size.height * 0.04;
+
     return Container(
       margin: const EdgeInsets.all(10),
       width: double.infinity,
@@ -89,10 +95,10 @@ class ProjectItem extends StatelessWidget {
         onTap: _hasUrl ? () => Services().launchURL(url: url!.trim()) : null,
         child: Padding(
           padding: EdgeInsets.fromLTRB(
-            MediaQuery.of(context).size.width * 0.02,
-            MediaQuery.of(context).size.height * 0.04,
-            MediaQuery.of(context).size.width * 0.02,
-            MediaQuery.of(context).size.height * 0.04,
+            horizontalPad,
+            verticalPad,
+            horizontalPad,
+            verticalPad,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -120,22 +126,22 @@ class ProjectItem extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: const Row(
+                  child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.science_rounded,
                         color: Color(0xFFEFF3F9),
                         size: 15,
                       ),
-                      SizedBox(width: 6),
+                      const SizedBox(width: 6),
                       Text(
                         "Published Research Paper",
                         style: TextStyle(
                           color: Color(0xFFF4F7FC),
-                          fontSize: 12,
+                          fontSize: isMobile ? 11 : 12,
                           fontWeight: FontWeight.w700,
-                          letterSpacing: 0.6,
+                          letterSpacing: isMobile ? 0.3 : 0.6,
                         ),
                       ),
                     ],
@@ -147,7 +153,8 @@ class ProjectItem extends StatelessWidget {
                   color:
                       _isResearchPaper ? const Color(0xFFEFF3FA) : Colors.white,
                   fontWeight: FontWeight.w700,
-                  letterSpacing: 4,
+                  letterSpacing: isMobile ? 2 : 4,
+                  fontSize: isMobile ? 12 : 14,
                 ),
               ),
               Padding(
@@ -159,23 +166,29 @@ class ProjectItem extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    name ?? "",
-                    style: TextStyle(
-                      fontSize: 32,
-                      color: _isResearchPaper
-                          ? const Color(0xFFF7FAFF)
-                          : Colors.white,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: 2,
+                  Expanded(
+                    child: Text(
+                      name ?? "",
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: isMobile ? 24 : 32,
+                        color: _isResearchPaper
+                            ? const Color(0xFFF7FAFF)
+                            : Colors.white,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: isMobile ? 1 : 2,
+                        height: 1.1,
+                      ),
                     ),
                   ),
+                  if (_hasUrl) const SizedBox(width: 10),
                   if (_hasUrl)
                     Image.asset(
                       "assets/icons/link.png",
                       color: Colors.white,
-                      height: 24,
-                      width: 24,
+                      height: isMobile ? 20 : 24,
+                      width: isMobile ? 20 : 24,
                     )
                 ],
               ),
@@ -187,13 +200,14 @@ class ProjectItem extends StatelessWidget {
               Text(
                 desc ?? "",
                 softWrap: true,
-                maxLines: 5,
+                maxLines: isMobile ? 7 : 5,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: _isResearchPaper
                       ? const Color(0xFFDDE3EC)
                       : const Color(0xFFa1a1a1),
-                  fontSize: 16,
+                  fontSize: isMobile ? 14 : 16,
+                  height: 1.35,
                 ),
               ),
               if (_hasAchievement)
@@ -213,9 +227,9 @@ class ProjectItem extends StatelessWidget {
                       Expanded(
                         child: Text(
                           achievement!.trim(),
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: Color(0xFFFFD700),
-                            fontSize: 14,
+                            fontSize: isMobile ? 13 : 14,
                             fontStyle: FontStyle.italic,
                           ),
                         ),
@@ -248,7 +262,7 @@ class ProjectItem extends StatelessWidget {
                           "Github",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: isMobile ? 14 : 16,
                             fontWeight: FontWeight.w300,
                           ),
                         ),
