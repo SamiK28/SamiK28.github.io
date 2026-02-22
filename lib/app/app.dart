@@ -100,7 +100,7 @@ class _PortfolioAppState extends State<PortfolioApp> {
   }
 
   static Widget subHeader = Text(
-      "Hybrid Mobile Application and Backend Developer. I am not only a developer but an active consumer as well, I like to read about upcoming technological ventures, as a result, I also love participating in Hackathons.",
+      "Mobile Application and Backend Developer. I am not only a developer but an active consumer as well, I like to read about upcoming technological ventures, as a result, I also love participating in Hackathons.",
       style: TextStyle(
         color: Color(0xFFa1a1a1),
         fontSize: 18,
