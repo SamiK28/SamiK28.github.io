@@ -14,11 +14,16 @@ List workex = [];
 Map<String, String> hyperlinks = {};
 int active = 1;
 
+const String appVersion = '2.0.0';
+const String appBuildDate = '2026-02-22';
+
 Future<void> loadPortfolioData() async {
+  print('\n🚀 Portfolio App v$appVersion (Build: $appBuildDate)');
+  print('═' * 50);
   try {
     // Try to fetch from GitHub
     final response = await http.get(
-      Uri.parse('https://raw.githubusercontent.com/SamiK28/Portfolio-main/main/assets/data.json'),
+      Uri.parse('https://raw.githubusercontent.com/SamiK28/Portfolio-main/master/assets/data.json'),
       headers: {'Accept': 'application/json'},
     ).timeout(const Duration(seconds: 10));
     
@@ -170,8 +175,30 @@ class _PortfolioAppState extends State<PortfolioApp> {
             ),
             Container(
                 child:
-                    (active == 1) ? ProjectsSection() : WorkExperienceSection())
+                    (active == 1) ? ProjectsSection() : WorkExperienceSection()),
+            Padding(padding: EdgeInsets.only(top: 60)),
+            VersionWidget(),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class VersionWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 40, bottom: 20),
+        child: Text(
+          'v$appVersion • Build $appBuildDate',
+          style: TextStyle(
+            color: Colors.grey[600],
+            fontSize: 12,
+            fontWeight: FontWeight.w300,
+          ),
         ),
       ),
     );
