@@ -33,24 +33,30 @@ fi
 
 echo -e "${GREEN}✓ Build successful!${NC}\n"
 
-# Step 3: Prepare gh-pages
+# Step 3: Save build directory to temp location
+echo -e "${YELLOW}📦 Saving build files...${NC}"
+BUILD_DIR=$(mktemp -d)
+cp -r build/web/* "$BUILD_DIR/"
+
+# Step 4: Prepare gh-pages
 echo -e "${YELLOW}📝 Preparing gh-pages branch...${NC}"
 git checkout gh-pages || git checkout --orphan gh-pages
 
-# Step 4: Copy build files
+# Step 5: Clear and copy build files
 echo -e "${YELLOW}📂 Copying build files...${NC}"
 git rm -rf --cached --quiet . 2>/dev/null || true
 find . -mindepth 1 -not -path './.git*' -delete 2>/dev/null || true
-cp -r build/web/* .
+cp -r "$BUILD_DIR"/* .
 touch .nojekyll  # Prevent GitHub from processing with Jekyll
+rm -rf "$BUILD_DIR"  # Clean up temp directory
 
-# Step 5: Commit and push
+# Step 6: Commit and push
 echo -e "${YELLOW}📤 Committing and pushing...${NC}"
 git add .
 git commit -m "$COMMIT_MSG" || echo -e "${YELLOW}⚠️  No changes to commit${NC}"
 git push -u origin gh-pages
 
-# Step 6: Return to master
+# Step 7: Return to master
 echo -e "${YELLOW}🔄 Switching back to master...${NC}"
 git checkout master
 
