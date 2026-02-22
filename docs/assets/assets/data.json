@@ -1,0 +1,58 @@
+{
+  "projects": [
+    {
+      "name": "Pigeon",
+      "tech": "Flutter",
+      "desc": "Multi-Platform Messaging Application with an inbuilt chatbot.",
+      "url": "https://github.com/SamiK28/Pigeon"
+    },
+    {
+      "name": "Auxilium",
+      "tech": "Vue.JS/ Node JS, Matic JS ",
+      "desc": "Decentralized Crowdfunding Web Application using Blockchain.",
+      "url": "https://github.com/SamiK28/Auxilium_Hack4"
+    },
+    {
+      "name": "SecureIT",
+      "tech": "Flutter, Python / OpenCV",
+      "desc": "A product that ensures your home is safe from intruders using face recognition algorithm.We have used Computer Vision and Deep Learning to solve this problem.",
+      "url": "https://github.com/SamiK28/secure-it"
+    },
+    {
+      "name": "Image Dehazing using OpenCV",
+      "tech": "Python / OpenCV",
+      "desc": "A novel and fast Image-Dehazing technique using Histogram Equalization, implemented with OpenCV and Python",
+      "url": "https://github.com/SamiK28/Dehazing"
+    }
+  ],
+  "workex": [
+    {
+      "name": "Xpert",
+      "role": "Mobile Application Development Intern",
+      "url": "https://play.google.com/store/apps/details?id=chat.xpert.user"
+    },
+    {
+      "name": "Headstrt",
+      "role": "Full Stack Development Intern",
+      "url": "https://play.google.com/store/apps/details?id=com.headstrt.app"
+    },
+    {
+      "name": "You2You",
+      "role": "Freelance",
+      "url": "https://play.google.com/store/apps/details?id=com.you2you.you2youapp"
+    },
+    {
+      "name": "KhetoSe",
+      "role": "Freelance",
+      "url": "https://play.google.com/store/apps/details?id=com.khetose.user"
+    }
+  ],
+  "hyperlinks": {
+    "github": "https://github.com/SamiK28",
+    "linkedin": "https://www.linkedin.com/in/samarthkhanna28/",
+    "twitter": "https://twitter.com/samarthkhanna28",
+    "instagram": "https://www.instagram.com/samarthkhanna28/",
+    "resume": "https://drive.google.com/file/d/1JfbLFxHQJ5QGgGyuFTVsMX8loL2A9-n8/view",
+    "mail": "mailto:samarthkhanna24@gmail.com"
+  }
+}
