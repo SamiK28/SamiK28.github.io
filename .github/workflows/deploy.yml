@@ -35,7 +35,7 @@ jobs:
         run: flutter pub get
 
       - name: Build Flutter web
-        run: flutter build web --release --verbose
+        run: flutter build web --release
         env:
           FLUTTER_BUILD_NUMBER: ${{ github.run_number }}
 
