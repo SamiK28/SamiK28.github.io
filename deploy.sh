@@ -39,7 +39,8 @@ git checkout gh-pages || git checkout --orphan gh-pages
 
 # Step 4: Copy build files
 echo -e "${YELLOW}📂 Copying build files...${NC}"
-rm -rf !(.git)
+git rm -rf --cached --quiet . 2>/dev/null || true
+find . -mindepth 1 -not -path './.git*' -delete 2>/dev/null || true
 cp -r build/web/* .
 touch .nojekyll  # Prevent GitHub from processing with Jekyll
 
