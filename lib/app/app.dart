@@ -20,25 +20,25 @@ const String appBuildDate = '2026-02-22';
 Future<void> loadPortfolioData() async {
   print('\n🚀 Portfolio App v$appVersion (Build: $appBuildDate)');
   print('═' * 50);
-  try {
-    // Try to fetch from GitHub
-    final response = await http.get(
-      Uri.parse('https://raw.githubusercontent.com/SamiK28/SamiK28.github.io/master/assets/data.json'),
-      headers: {'Accept': 'application/json'},
-    ).timeout(const Duration(seconds: 10));
-    
-    if (response.statusCode == 200) {
-      final Map<String, dynamic> jsonData = json.decode(response.body);
-      projects = jsonData['projects'];
-      workex = jsonData['workex'];
-      hyperlinks = Map<String, String>.from(jsonData['hyperlinks']);
-      print('✓ Loaded data from GitHub');
-      return;
-    }
-  } catch (e) {
-    print('⚠ GitHub fetch failed: $e');
-  }
-  
+  // try {
+  //   // Try to fetch from GitHub
+  //   final response = await http.get(
+  //     Uri.parse('https://raw.githubusercontent.com/SamiK28/SamiK28.github.io/master/assets/data.json'),
+  //     headers: {'Accept': 'application/json'},
+  //   ).timeout(const Duration(seconds: 10));
+
+  //   if (response.statusCode == 200) {
+  //     final Map<String, dynamic> jsonData = json.decode(response.body);
+  //     projects = jsonData['projects'];
+  //     workex = jsonData['workex'];
+  //     hyperlinks = Map<String, String>.from(jsonData['hyperlinks']);
+  //     print('✓ Loaded data from GitHub');
+  //     return;
+  //   }
+  // } catch (e) {
+  //   print('⚠ GitHub fetch failed: $e');
+  // }
+
   // Fallback 1: Try to load from local assets
   try {
     final String jsonString = await rootBundle.loadString('assets/data.json');
@@ -51,7 +51,7 @@ Future<void> loadPortfolioData() async {
   } catch (e) {
     print('⚠ Local assets fallback failed: $e');
   }
-  
+
   // Fallback 2: Hardcoded defaults (emergency backup)
   projects = [
     {
@@ -63,7 +63,8 @@ Future<void> loadPortfolioData() async {
     {
       "name": "SecureIT",
       "tech": "Flutter, Python / OpenCV",
-      "desc": "A product that ensures your home is safe from intruders using face recognition algorithm.",
+      "desc":
+          "A product that ensures your home is safe from intruders using face recognition algorithm.",
       "url": "https://github.com/SamiK28/secure-it"
     },
   ];
@@ -79,7 +80,8 @@ Future<void> loadPortfolioData() async {
     "linkedin": "https://www.linkedin.com/in/samarthkhanna28/",
     "twitter": "https://twitter.com/samarthkhanna28",
     "instagram": "https://www.instagram.com/samarthkhanna28/",
-    "resume": "https://drive.google.com/file/d/1JfbLFxHQJ5QGgGyuFTVsMX8loL2A9-n8/view",
+    "resume":
+        "https://drive.google.com/file/d/1MA2yFFAnCY1u-tq_NvanAu-TTHfDcfdt/view",
     "mail": "mailto:samarthkhanna24@gmail.com"
   };
   print('✓ Loaded hardcoded fallback data');
@@ -100,7 +102,7 @@ class _PortfolioAppState extends State<PortfolioApp> {
   }
 
   static Widget subHeader = Text(
-      "Mobile Application and Backend Developer. I am not only a developer but an active consumer as well, I like to read about upcoming technological ventures, as a result, I also love participating in Hackathons.",
+      "Full stack Software Engineer building scalable backend and ML-driven platforms, with proven impact across enterprise products used by thousands to millions of users.\nCreator of full-stack and cross-platform products across Flutter, React, Node.js, Python, and AI/ML, spanning secure messaging, semantic search, and decentralized healthcare/crowdfunding apps.\nPublished researcher in deep learning/computer vision and hackathon winner, focused on turning advanced technical ideas into high-performance, real-world products.",
       style: TextStyle(
         color: Color(0xFFa1a1a1),
         fontSize: 18,
@@ -125,26 +127,65 @@ class _PortfolioAppState extends State<PortfolioApp> {
           controller: _scrollController,
           shrinkWrap: true,
           children: [
-            Text(
-              "Hello, ",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 80,
-                  fontWeight: FontWeight.bold),
-            ),
-            AnimatedTextKit(
-              animatedTexts: [
-                TyperAnimatedText(
-                  "I'm Samarth Khanna",
-                  speed: Duration(milliseconds: 100),
-                  textStyle: TextStyle(
-                      color: Colors.orange.shade900,
-                      fontSize: 80,
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
-              repeatForever: false,
-              isRepeatingAnimation: false,
+            Builder(
+              builder: (context) {
+                final width = MediaQuery.of(context).size.width;
+                final isCompact = width < 980;
+                final heroFontSize = isCompact ? 44.0 : 80.0;
+                final avatarSize = isCompact ? 120.0 : 190.0;
+
+                final heroText = Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Hello, ",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: heroFontSize,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    AnimatedTextKit(
+                      animatedTexts: [
+                        TyperAnimatedText(
+                          "I'm Samarth Khanna",
+                          speed: Duration(milliseconds: 100),
+                          textStyle: TextStyle(
+                            color: Colors.orange.shade900,
+                            fontSize: heroFontSize,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                      repeatForever: false,
+                      isRepeatingAnimation: false,
+                    ),
+                  ],
+                );
+
+                final heroMemoji = SizedBox(
+                  width: avatarSize,
+                  height: avatarSize,
+                  child: Image.asset(
+                    "assets/icons/memoji.png",
+                    fit: BoxFit.contain,
+                    errorBuilder: (_, __, ___) => const Icon(
+                      Icons.person,
+                      color: Colors.white54,
+                      size: 72,
+                    ),
+                  ),
+                );
+
+                return Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    heroMemoji,
+                    SizedBox(width: isCompact ? 16 : 28),
+                    Expanded(child: heroText),
+                  ],
+                );
+              },
             ),
             Padding(
               padding: EdgeInsets.only(
@@ -167,15 +208,16 @@ class _PortfolioAppState extends State<PortfolioApp> {
             Padding(
               padding: const EdgeInsets.only(top: 80),
               child: PageSwitcher(
-                titles: ["projects", "work experience"],
+                titles: ["work experience", "projects"],
                 onUpdate: () {
                   setState(() {});
                 },
               ),
             ),
             Container(
-                child:
-                    (active == 1) ? ProjectsSection() : WorkExperienceSection()),
+                child: (active == 1)
+                    ? WorkExperienceSection()
+                    : ProjectsSection()),
             Padding(padding: EdgeInsets.only(top: 60)),
             VersionWidget(),
           ],
@@ -193,7 +235,7 @@ class VersionWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(top: 40, bottom: 20),
         child: Text(
-          'v$appVersion • Build $appBuildDate',
+          'v$appVersion',
           style: TextStyle(
             color: Colors.grey[600],
             fontSize: 12,

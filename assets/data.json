@@ -1,9 +1,30 @@
 {
   "projects": [
     {
+      "name": "Sign Language Interpretation using Ensembled Deep Learning Models",
+      "tech": "Python, TensorFlow, Deep Learning, Computer Vision",
+      "desc": "Published research in ITM Web of Conferences (EDP Sciences, 2023) proposing an ensemble deep learning architecture for real-time sign language interpretation. Combined multiple CNN-based models to improve gesture recognition accuracy and robustness under varying visual conditions.",
+      "url": "https://www.itm-conferences.org/articles/itmconf/abs/2023/03/itmconf_icdsia2023_01003/itmconf_icdsia2023_01003.html",
+      "type":"Research Paper"
+    },
+    {
+      "name": "Semantic Website Search Engine",
+      "tech": "Python, Flask, BERT, NER, Vue.js",
+      "desc": "Built a semantic search engine for HackRX 2.0 that scraped and indexed website content using NER-based keyword extraction. Implemented fuzzy matching and BERT-powered semantic retrieval with transformer-based summarization, exposed via REST APIs and consumed through a Vue.js frontend.",
+      "url": "",
+      "achievement":"Won 2nd place at HackRX 2.0, Bajaj Finserv"
+    },
+    {
+      "name": "LiMed",
+      "tech": "React, Node.js, Blockchain",
+      "desc": "Decentralized web application for securely storing and selectively sharing medical records. Implements access-controlled data sharing and incentive mechanisms for verified record updates.",
+      "url": "https://limed-gecko.web.app/user/login",
+      "achievement":"Filecoin Bounty Winner, ETHOdyssey Hackathon"
+    },
+    {
       "name": "Pigeon",
-      "tech": "Flutter",
-      "desc": "Multi-Platform Messaging Application with an inbuilt chatbot.",
+      "tech": "Flutter, Node.js",
+      "desc": "Cross-platform messaging application with end-to-end encryption and an AI chatbot. Designed scalable real-time communication with secure message exchange.",
       "url": "https://github.com/SamiK28/Pigeon"
     },
     {
@@ -24,27 +45,38 @@
       "desc": "A novel and fast Image-Dehazing technique using Histogram Equalization, implemented with OpenCV and Python",
       "url": "https://github.com/SamiK28/Dehazing"
     }
+    
   ],
   "workex": [
     {
+      "name": "PeopleStrong Technologies",
+      "role": "Software Development Engineer - 2",
+      "url": "",
+      "summary": "Led backend and ML-driven platform engineering for 50K+ enterprise users, building recommendation systems, event-driven microservices, and real-time dashboards. Drove 65% reduction in goal-setting time, 73% faster dashboard loads, and 75% increase in deployment frequency through microservices migration on GCP."
+    },
+    {
+      "name": "PeopleStrong Technologies",
+      "role": "Software Development Engineer - 1",
+      "url": "",
+      "summary": "Migrated legacy HR modules to scalable microservices and cross-platform architectures, serving 5M+ users. Delivered 8-language internationalization, improved cross-platform dev speed by 40%, and optimized search performance to sub-250ms for 1M+ daily queries."
+    },
+    {
+      "name": "PeopleStrong Technologies",
+      "role": "Software Development Engineer - Intern",
+      "url": "",
+      "summary": "Built MVP goal management module with 35% smaller bundle size and 40% faster initial load. Enhanced Elasticsearch-based employee search achieving 47% performance improvement at enterprise scale."
+    },
+    {
       "name": "Xpert",
-      "role": "Mobile Application Development Intern",
-      "url": "https://play.google.com/store/apps/details?id=chat.xpert.user"
+      "role": "Intern",
+      "url": "https://play.google.com/store/apps/details?id=chat.xpert.user",
+      "summary": "Collaborated with Product and frontend teams to ship a redesigned Android MVP in under 6 months, building key client-side features including a dedicated multimedia streaming widget.\nImproved app performance with lazy loading and caching (20% speedup), and built an Algolia-powered discovery experience that significantly reduced search latency and improved large-scale content organization."
     },
     {
       "name": "Headstrt",
-      "role": "Full Stack Development Intern",
-      "url": "https://play.google.com/store/apps/details?id=com.headstrt.app"
-    },
-    {
-      "name": "You2You",
-      "role": "Freelance",
-      "url": "https://play.google.com/store/apps/details?id=com.you2you.you2youapp"
-    },
-    {
-      "name": "KhetoSe",
-      "role": "Freelance",
-      "url": "https://play.google.com/store/apps/details?id=com.khetose.user"
+      "role": "Intern",
+      "url": "https://play.google.com/store/apps/details?id=com.headstrt.app",
+      "summary": "Improved Flutter app architecture using BLoC, increasing overall application performance by up to 40%.\nImplemented deep/dynamic links for content and profile sharing, and strengthened security by revising CRUD rules with cloud-based authentication."
     }
   ],
   "hyperlinks": {
@@ -52,7 +84,7 @@
     "linkedin": "https://www.linkedin.com/in/samarthkhanna28/",
     "twitter": "https://twitter.com/samarthkhanna28",
     "instagram": "https://www.instagram.com/samarthkhanna28/",
-    "resume": "https://drive.google.com/file/d/1JfbLFxHQJ5QGgGyuFTVsMX8loL2A9-n8/view",
+    "resume": "https://drive.google.com/file/d/1MA2yFFAnCY1u-tq_NvanAu-TTHfDcfdt/view",
     "mail": "mailto:samarthkhanna24@gmail.com"
   }
 }
